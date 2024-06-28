@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+body { /*tamanho e altura máxima*/
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) { /*Tema dark*/
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -16,7 +22,7 @@
   }
 }
 
-body {
+body { /*Tema dark*/
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -26,7 +32,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
+@layer utilities { /*Tema dark*/
   .text-balance {
     text-wrap: balance;
   }

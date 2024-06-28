@@ -30,6 +30,12 @@ Para saber mais sobre o Next.js, dê uma olhada nos seguintes recursos:
 
 Pode consultar [o repositório Next.js GitHub](https://github.com/vercel/next.js/) - os seus comentários e contribuições são bem-vindos!
 
+Alguns passos/comando para desenvolvimento do projeto
+
+Instala a biblioteca do formik ultilizando o instalador de pacotes YARN
+
+```yarn add formik yup``` 
+
 ## Implantar no Vercel
 
 A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
