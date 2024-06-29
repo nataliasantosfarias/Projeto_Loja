@@ -1,6 +1,6 @@
 
 
 export default function Home() {
-  return <div>HOME</div>;
+  return <div className="min-h-screen flex items-center justify-center">HOME</div>;
 }
    
