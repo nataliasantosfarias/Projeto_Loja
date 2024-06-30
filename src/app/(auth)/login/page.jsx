@@ -10,6 +10,8 @@ import Link from "next/link";
 export default function Login() {
   const initialValues = {
     //valores iniciais
+    
+    name: "",
     email: "",
     password: "",
   };
@@ -22,8 +24,28 @@ export default function Login() {
     password: Yup.string().required("O campo senha é obrigatório"),
   });
 
-  async function handleSubmit() {
-    console.log("Form Values", values);
+// sourcery skip: avoid-function-declarations-in-blocks
+  async function handleSubmit(values, { resetForm }) {
+    setFormSubmitting(true);
+    try {
+      signIn("Credentials", { ...values, redirect: false }).then(
+        ({ error }) => {
+          if (!error) {
+            router.push("/");
+          } else {
+            setError(error.replace("Error: ", ""));
+            setTimeout(() => {
+              setError("");
+            }, 3000);
+            resetForm();
+          }
+          setFormSubmitting(false);
+        }
+      );
+    } catch {
+      setFormSubmitting(false);
+      rederError("Erro ao criar conta, tente mais tarde!");
+    }
   }
 
   return (
@@ -36,8 +58,13 @@ export default function Login() {
         {({ values, onChange }) => (
           <Form
             noValidate
-            className="flex flex-col gap-2 p-4 border border-zinc-300 min-w-[300px] bg-green-100 "
+            className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-green-100 "
           >
+             
+            <div className="mb-4 text-center text-lg text-gray-700">
+              Bem-vindo!Por favor, faça login para acessar a sua conta.
+            </div>
+
             <Input
               name="email"
               type="email"
