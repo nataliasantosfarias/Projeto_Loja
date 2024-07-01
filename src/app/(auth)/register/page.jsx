@@ -11,18 +11,18 @@ import { useEffect, useState } from "react";
 
 
 export default function Register() {
-  const [error, setError] = useState(" ");
+  const [error, setError] = useState("");
   const [isFormSubmitting, setFormSubmitting] = useState(false);
   const router = useRouter();
   const { status } = useSession();
 
-  useEffect(() => {
+  useEffect(() => { //função do React para alterar  a rota
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [status, router]);
+  }, [ status,router ]);
 
-  if (status !== "unauthenticated") {
+  if (status !== "unauthenticated") { // caso status n seja autenticado retorne null
     return null;
   }
 

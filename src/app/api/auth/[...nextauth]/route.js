@@ -4,9 +4,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import connect from "@/utils/db";
 
+// Página de configuração de credencias
+
 const options = NextAuth({
   providers: [
-    CredentialsProvider({
+    CredentialsProvider({ //Via receber as informações que eu colocar no banco
       id: "Credentials",
       name: "Credentials",
       async authorize(credentials) {
@@ -18,15 +20,15 @@ const options = NextAuth({
           });
 
           if (user) {
-            const validPassword = await bcrypt.compare(
+            const validPassword = await bcrypt.compare( // Compare as senhas
               credentials.password,
               user.password
             );
 
-            if (validPassword) {
+            if (validPassword) { // Se for válido retorne a sessão
               return user;
             } else {
-              throw new Error("Credenciais erradas!");
+              throw new Error("Credenciais erradas!"); //Se não 
             }
           } else {
             throw new Error("Credenciais erradas!");

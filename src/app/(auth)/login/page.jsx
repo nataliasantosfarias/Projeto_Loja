@@ -1,17 +1,34 @@
 "use client"; //Informa que será uma página usada pelo cliente
 import { Form, Formik } from "formik";
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Input from "../../components/input"; //Importa o componente Input
 import Button from "../../components/Button"; //Importa o componente Button
-import * as Yup from "yup"; //validação
 import Link from "next/link";
+import * as Yup from "yup"; //validação
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 // função para importar valores do formik
 export default function Login() {
-  const initialValues = {
-    //valores iniciais
+  const [error, setError] = useState("");
+  const [isFormSubmitting, setFormSubmitting] = useState(false);
+  const router = useRouter();
+  const { status } = useSession();
+
+  useEffect(() => { //função do React para alterar  a rota
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [ status,router ]);
+
+  if (status !== "unauthenticated") { // caso status n seja autenticado retorne null
+    return null;
+  }
     
-    name: "",
+
+
+  const initialValues = {  //valores iniciais
     email: "",
     password: "",
   };
@@ -24,14 +41,14 @@ export default function Login() {
     password: Yup.string().required("O campo senha é obrigatório"),
   });
 
-// sourcery skip: avoid-function-declarations-in-blocks
+
   async function handleSubmit(values, { resetForm }) {
     setFormSubmitting(true);
     try {
       signIn("Credentials", { ...values, redirect: false }).then(
         ({ error }) => {
           if (!error) {
-            router.push("/");
+            router.push("/"); // Verifico se possui algum erro
           } else {
             setError(error.replace("Error: ", ""));
             setTimeout(() => {
@@ -44,7 +61,7 @@ export default function Login() {
       );
     } catch {
       setFormSubmitting(false);
-      rederError("Erro ao criar conta, tente mais tarde!");
+      setError("Erro ao criar conta, tente mais tarde!"); //testa erro tela login
     }
   }
 
@@ -55,7 +72,7 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, onChange }) => (
+        {({ values }) => (
           <Form
             noValidate
             className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-white "
@@ -65,34 +82,23 @@ export default function Login() {
               Bem-vindo!Por favor, faça login para acessar a sua conta.
             </div>
 
-            <Input
-              name="email"
-              type="email"
-              label="email"
-              value={values?.name}
-              required={true}
-              onChange={handleSubmit}
-            />
-
-            <Input
-              name="password"
-              label="password "
-              value={values?.name}
-              required={true} //campo obrigatório
-              autoComplete="off" //não aulto_complet a senha
-              onChange={onChange} //manipulador de eventos
-            />
+            <Input name="email" type="email" required />
+            <Input name="password" type="password" required autoComplete="off" />
 
             <Button
               type="submit"
-              text="Entrar"
+              text={isFormSubmitting ? "Carregando..." :"Entrar"} // Formulário login enviado ? arregando
+              disabled={isFormSubmitting} //botão desabilitado caso o formulário de login seja enviado corretamente
               className="bg-green-700 text-white rounded p-2 cursor-pointer  "
-            >
-            </Button>
+            />
+              
+                { error  &&( //condição que renderiza um elemento se valores derem erro/incorretos ou inesistência de informações
+                    <span className="text-red-500">{error}</span>
+                )}
 
-            <span className="text-xs text-zinc-500">
-              Não possui uma conta?
-              <strong className="text-zinc-700">
+                <span className="text-xs text-zinc-500">
+                  Não possui uma conta?
+                  <strong className="text-zinc-700">
                 <Link href="/register">
                    Inscreva-se
                 </Link>
@@ -105,11 +111,4 @@ export default function Login() {
   );
 }
 
-//handleChange como o manipulador de eventos para os campos de formulário, e ele cuida do restante.
 
-/* <span className="text-xs text-zinc-500">
-                        Não possui uma conta?
-                        <strong className="text-zinc-700">
-                            <link href="/register"> Inscreva-se</link>
-                        </strong>
-                      </span> */
