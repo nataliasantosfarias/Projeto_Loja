@@ -58,7 +58,7 @@ export default function Login() {
         {({ values, onChange }) => (
           <Form
             noValidate
-            className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-green-100 "
+            className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-white "
           >
              
             <div className="mb-4 text-center text-lg text-gray-700">

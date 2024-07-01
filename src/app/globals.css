@@ -14,7 +14,7 @@ body { /*tamanho e altura máxima*/
   overflow: hidden;
 }
 /*Tema dark*/
-@media (prefers-color-scheme: dark) { 
+ @media (prefers-color-scheme: dark) { 
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -23,7 +23,7 @@ body { /*tamanho e altura máxima*/
 } 
 
 /*Tema dark*/
-body { 
+ body { 
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -33,7 +33,7 @@ body {
     rgb(var(--background-start-rgb));
 } 
 /*Tema dark*/
-@layer utilities { 
+ @layer utilities { 
   .text-balance {
     text-wrap: balance;
   }

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-//import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 
@@ -14,17 +14,17 @@ export default function Register() {
   const [error, setError] = useState(" ");
   const [isFormSubmitting, setFormSubmitting] = useState(false);
   const router = useRouter();
-  // const { status } = useSession();
+  const { status } = useSession();
 
-  // // useEffect(() => {
-  // //   if (status === "authenticated") {
-  // //     router.push("/");
-  // //   }
-  // // }, [status, router]);
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status, router]);
 
-  // // if (status !== "unauthenticated") {
-  // //   return null;
-  // // }
+  if (status !== "unauthenticated") {
+    return null;
+  }
 
   const initialValues = {
     name: "",
@@ -91,6 +91,11 @@ export default function Register() {
             noValidate
             className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-white"
           >
+          <div className="mb-4 text-center text-lg text-gray-700">
+              Bem-vindo!Vamos criar seu primeiro.
+          </div>
+
+
             <Input label="Nome" name='name' required />
             <Input label="email" name='email' type="email" required />
             <Input label="Senha" name='password' type="password" required autoComplete="off" />
