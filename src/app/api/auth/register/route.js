@@ -35,7 +35,7 @@ export async function POST(req) {
         });
 
     }   catch (error){
-        console.log({ rr})
+        console.log({ rr});
         return NextResponse.json({
             erro: "Erro ao cadastrar usuário",
             status: 500, 

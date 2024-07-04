@@ -1,7 +1,7 @@
 "use client"; //Informa que será uma página usada pelo cliente
 import { Form, Formik } from "formik";
 import React, { useEffect,useState } from "react";
-import Input from "../../components/input"; //Importa o componente Input
+import Input from "../../components/Input"; //Importa o componente Input
 import Button from "../../components/Button"; //Importa o componente Button
 import Link from "next/link";
 import * as Yup from "yup"; //validação

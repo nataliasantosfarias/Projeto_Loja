@@ -2,8 +2,9 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import AuthProvider from "@/app/components/AuthProvider"; // Autenticar
 import Header from "./components/Header";
-import BotõesCadastrarLogin from "./components/BotõesCadastrarLogin";
-// import Buceta from "./(private)/privado/page";
+import RegisterLoginButtons from "./components/RegisterLoginButtons";
+import MessageUser from "./(private)/privado/MessageUser";
+
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
       <AuthProvider>
       <body className={poppins.className}>
          <Header/>
-         <BotõesCadastrarLogin/>
+         <RegisterLoginButtons/>
+         <MessageUser/>
+         
         
         {children}
         </body>
@@ -30,4 +33,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

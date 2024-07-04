@@ -1,15 +1,15 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
 import React from "react";
-import Button from "./Button";
+import Button from "../../components/Button";
 
 
 export default function MessageUser() {
   const { status, data: session } = useSession();
 
-  if (status !== "authenticated") {
-    return null;
-  }
+   if (status !== "authenticated") {
+     return null;
+   }
 
   return (
     <div className="flex items-center gap-2">
