@@ -12,9 +12,7 @@ export default function LayoutAdmin({ children }) {
   }
 
   if (!session) { // Se estiver envia o usuário a tela de login
-    setTimeout(() => {
-      router.push("/login");
-    }, 100);
+    router.push("/login");
 
     return null;
   }

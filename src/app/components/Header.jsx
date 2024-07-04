@@ -1,12 +1,11 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
+//import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
-import MessageUser from '@/app/(private)/privado/MessageUser';
 
 
 export default function Header() {
-  const { status, data: session } = useSession();
+  //const { status, data: session } = useSession();
 
   // if (status !== "authenticated") { // Se o status code n for de autenticado retornará a  null
   //   return null;
