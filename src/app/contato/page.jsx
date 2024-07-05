@@ -1,15 +1,13 @@
 
 import React from "react";
-import Header from "../components/Header";
-import MessageUser from "../(private)/MessageUser";
+import ExitButton from "../(private)/ExitButton";
 
 
 export default function Contato() {
   return (
     
       <main className="min-h-screen flex justify-center pt-6">Contato
-      <Header/>
-      <MessageUser/>
+      <ExitButton/>
     </main>
     
   );
