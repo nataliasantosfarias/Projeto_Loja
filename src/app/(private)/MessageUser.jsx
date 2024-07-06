@@ -10,7 +10,7 @@ export default function MessageUser() {
   }
 
   return (
-    <span className="text-white rounded-sm px-2">
+    <span className="text-black rounded-sm px-2">
       {`Olá ${session.user.name.split(" ")[0]}`}
     </span>
   );
