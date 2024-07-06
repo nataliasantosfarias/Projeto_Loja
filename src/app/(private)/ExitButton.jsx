@@ -3,12 +3,16 @@ import { signOut } from "next-auth/react";
 import React from "react";
 import Button from "../components/Button";
 
-export default function ExitButton () {
+export default function ExitButton() {
+  const handleSignOut = () => {
+    signOut({ callbackUrl: '/' }); // Redireciona para a página principal após o logout
+  };
+
   return (
     <Button
       text="Sair"
       className="bg-red-600 text-white rounded px-2 cursor-pointer"
-      onClick={() => signOut()}
+      onClick={handleSignOut}
     />
   );
 }

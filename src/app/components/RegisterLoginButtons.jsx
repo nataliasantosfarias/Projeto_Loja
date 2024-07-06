@@ -5,12 +5,12 @@ import Button from "./Button";
 
 export default function RegisterLoginButtons () {
   return (
-    <div className="flex gap-4 mt-4 justify-end">
+    <div className=" flex gap-4 mt-4 justify-end">
       {/* Botão login */}
       <Link href="/register">
         <Button
           text="Cadastro"
-          className="bg-green-600 text-white rounded px-4"
+          className="bg-[#059669] text-white rounded px-4"
         />
       </Link>
       <Link href="/login">
