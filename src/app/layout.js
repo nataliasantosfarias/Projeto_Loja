@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import AuthProvider from "@/app/components/AuthProvider"; // Autenticar
 import Header from "./components/Header";
 import RegisterLoginButtons from "./components/RegisterLoginButtons";
-import MessageUser from "./(private)/MessageUser";
 // import ExitButton from "/";
 
 const poppins = Poppins({
@@ -23,7 +22,6 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body className={poppins.className}>
           <Header />
-          <MessageUser />
           <RegisterLoginButtons />
           {children}
         </body>

@@ -9,10 +9,13 @@ export default function ExitButton() {
   };
 
   return (
+   <>
     <Button
-      text="Sair"
-      className="bg-red-600 text-white rounded px-2 cursor-pointer"
-      onClick={handleSignOut}
-    />
+    text="Sair"
+    className="bg-red-600 text-white rounded px-2 cursor-pointer max-sm:fixed  bottom-4 right-4 z-50  block"
+    onClick={handleSignOut}/>
+   </>
   );
 }
+
+
