@@ -3,7 +3,8 @@ import { Poppins } from "next/font/google";
 import AuthProvider from "@/app/components/AuthProvider"; // Autenticar
 import Header from "./components/Header";
 import RegisterLoginButtons from "./components/RegisterLoginButtons";
-// import ExitButton from "/";
+import Footer from "./components/Footer";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -19,13 +20,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body className={poppins.className}>
+
+      <body className={poppins.className}>
+        <AuthProvider>
           <Header />
           <RegisterLoginButtons />
+          <Footer />
           {children}
-        </body>
-      </AuthProvider>
+        </AuthProvider>
+      </body>
+
+
+
     </html>
   );
 }
