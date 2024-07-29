@@ -41,3 +41,5 @@ Instala a biblioteca do formik ultilizando o instalador de pacotes YARN
 A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dos criadores do Next.js.
 
 Confira nossa [Next.js deployment documentation](https://nextjs.org/docs/deployment) para mais detalhes.
+
+vercel --prod
