@@ -1,16 +1,17 @@
-
+"use client"
 import React from "react";
 
 
-
 export default function Contato() {
+
   return (
-    
-      <main className="min-h-screen flex justify-center pt-6">Contato
-      
-    </main>
-    
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden ">
+      {/* <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden text-center"> */}
+        <div className ="text-center" >
+          <h1>Contato</h1>
+        <div/>
+      </div>
+   </div>
   );
 }
-
 

@@ -24,10 +24,10 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
-            
             <RegisterLoginButtons />
             <main className="flex-grow">
               {children}
+            
             </main>
             <Footer />
           </div>
