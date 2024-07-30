@@ -2,7 +2,7 @@
 import { Form, Formik } from "formik";
 import React, { useEffect,useState } from "react";
 // import Input from ".@/app/components/Input"; 
-import Button from "@/components/Button"; //Importa o componente Button
+import Button from '@/app/components/Button';
 import Link from "next/link";
 import * as Yup from "yup"; //validação
 import { signIn, useSession } from "next-auth/react";
@@ -82,8 +82,8 @@ export default function Login() {
               Bem-vindo!Por favor, faça login para acessar a sua conta.
             </div>
 
-            <Input name="email" type="email" required />
-            <Input name="password" type="password" required autoComplete="off" />
+            {/* <Input name="email" type="email" required />
+            <Input name="password" type="password" required autoComplete="off" /> */}
 
             <Button
               type="submit"

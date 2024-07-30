@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app/components/Button"
+import Button from '@/app/components/Button';
 // import Input from ".@/app/components/Input"; 
 import Link from "next/link";
 import { Formik, Form } from "formik";
@@ -96,9 +96,9 @@ export default function Register() {
           </div>
 
 
-            <Input label="Nome" name='name' required />
+            {/* <Input label="Nome" name='name' required />
             <Input label="email" name='email' type="email" required />
-            <Input label="Senha" name='password' type="password" required autoComplete="off" />
+            <Input label="Senha" name='password' type="password" required autoComplete="off" /> */}
             <Button
               type="submit"
               text={isFormSubmitting ? "Carregando..." : "Inscrever-se"}
