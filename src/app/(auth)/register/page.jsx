@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/app/components/Button"
-import Input from "@/app/components/Input";
+import Input from "../../components/Input"; 
 import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
