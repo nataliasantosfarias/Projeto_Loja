@@ -21,3 +21,4 @@ export default function Input({ name, label, type, required, ...props }) {
     </div>
   );
 }
+//
