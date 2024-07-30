@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import ExitButton from "../(private)/ExitButton";
-import MessageUser from "../(private)/MessageUser";
+import ExitButton from "../app/(private)/ExitButton";
+import MessageUser from "../app/(private)/MessageUser";
 export default function Header() {
   
 

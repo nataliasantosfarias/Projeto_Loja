@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import AuthProvider from "@/app/components/AuthProvider"; // Autenticar
-import Header from "./components/Header";
-import RegisterLoginButtons from "./components/RegisterLoginButtons";
-import Footer from "./components/Footer";
+import AuthProvider from "@/components/AuthProvider"; // Autenticar
+import Header from "../components/Header";
+import RegisterLoginButtons from "../components/RegisterLoginButtons";
+import Footer from "../components/Footer";
 
 
 const poppins = Poppins({

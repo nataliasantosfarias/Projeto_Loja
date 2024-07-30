@@ -1,8 +1,8 @@
 "use client"; //Informa que será uma página usada pelo cliente
 import { Form, Formik } from "formik";
 import React, { useEffect,useState } from "react";
-import Input from "@/app/components/Input"; 
-import Button from '@/app/components/Button';
+import Input from "@/components/Input"; 
+import Button from '@/components/Button';
 import Link from "next/link";
 import * as Yup from "yup"; //validação
 import { signIn, useSession } from "next-auth/react";
