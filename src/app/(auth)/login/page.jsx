@@ -1,7 +1,7 @@
 "use client"; //Informa que será uma página usada pelo cliente
 import { Form, Formik } from "formik";
 import React, { useEffect,useState } from "react";
-// import Input from ".@/app/components/Input"; 
+import Input from "@/app/components/Input"; 
 import Button from '@/app/components/Button';
 import Link from "next/link";
 import * as Yup from "yup"; //validação
@@ -82,8 +82,8 @@ export default function Login() {
               Bem-vindo!Por favor, faça login para acessar a sua conta.
             </div>
 
-            {/* <Input name="email" type="email" required />
-            <Input name="password" type="password" required autoComplete="off" /> */}
+             <Input name="email" type="email" required />
+            <Input name="password" type="password" required autoComplete="off" />
 
             <Button
               type="submit"
