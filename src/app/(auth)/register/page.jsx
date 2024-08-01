@@ -1,7 +1,7 @@
 "use client";
-
-import Button from '@/components/Button';
-import Input from "@/components/Input"; 
+import ExitButton from "@/app/(private)/ExitButton";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
 import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -16,13 +16,15 @@ export default function Register() {
   const router = useRouter();
   const { status } = useSession();
 
-  useEffect(() => { //função do React para alterar  a rota
+  useEffect(() => {
+    //função do React para alterar  a rota
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [ status,router ]);
+  }, [status, router]);
 
-  if (status !== "unauthenticated") { // caso status n seja autenticado retorne null
+  if (status !== "unauthenticated") {
+    // caso status n seja autenticado retorne null
     return null;
   }
 
@@ -40,7 +42,7 @@ export default function Register() {
   });
 
   async function handleSubmit(values, { resetForm }) {
-    console.log(values)
+    console.log(values);
     setFormSubmitting(true);
     try {
       await fetch("/api/auth/register", {
@@ -65,8 +67,8 @@ export default function Register() {
         }
         setFormSubmitting(false);
       });
-    } catch(error) {
-      console.log(error)
+    } catch (error) {
+      console.log(error);
       setFormSubmitting(false);
       renderError("Erro ao criar conta, tente mais tarde!");
     }
@@ -80,43 +82,55 @@ export default function Register() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ values }) => (
-          <Form
-            noValidate
-            className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-white"
-          >
-          <div className="mb-4 text-center text-lg text-gray-700">
-              Bem-vindo!Vamos criar seu primeiro.
-          </div>
+    <>
+      <>
+        <ExitButton /> {/* botào de sair  */}
+      </>
+      <main className="min-h-screen flex items-center justify-center">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ values }) => (
+            <Form
+              noValidate
+              className="flex flex-col gap-2 p-4 border rounded border-zinc-300 min-w-[300px] bg-white"
+            >
+              <div className="mb-4 text-center text-lg text-gray-700">
+                Bem-vindo!Vamos criar seu primeiro.
+              </div>
 
-
-            <Input label="Nome" name='name' required />
-            <Input label="email" name='email' type="email" required />
-            <Input label="Senha" name='password' type="password" required autoComplete="off" />
-            <Button
-              type="submit"
-              text={isFormSubmitting ? "Carregando..." : "Inscrever-se"}
-              disabled={isFormSubmitting}
-              className="bg-green-500 text-white rounded p-2 cursor-pointer"
-            />
-            {!values.name && !values.email && !values.password && error && (
-              <span className="text-red-500 text-sm text-center">{error}</span>
-            )}
-            <span className="text-xs text-zinc-500">
-              Já possui uma conta?
-              <strong className="text-zinc-700">
-                <Link href="/login"> Entre</Link>
-              </strong>
-            </span>
-          </Form>
-        )}
-      </Formik>
-    </main>
+              <Input label="Nome" name="name" required />
+              <Input label="email" name="email" type="email" required />
+              <Input
+                label="Senha"
+                name="password"
+                type="password"
+                required
+                autoComplete="off"
+              />
+              <Button
+                type="submit"
+                text={isFormSubmitting ? "Carregando..." : "Inscrever-se"}
+                disabled={isFormSubmitting}
+                className="bg-green-500 text-white rounded p-2 cursor-pointer"
+              />
+              {!values.name && !values.email && !values.password && error && (
+                <span className="text-red-500 text-sm text-center">
+                  {error}
+                </span>
+              )}
+              <span className="text-xs text-zinc-500">
+                Já possui uma conta?
+                <strong className="text-zinc-700">
+                  <Link href="/login"> Entre</Link>
+                </strong>
+              </span>
+            </Form>
+          )}
+        </Formik>
+      </main>
+    </>
   );
 }
