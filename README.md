@@ -43,3 +43,4 @@ A maneira mais fácil de implantar seu aplicativo Next.js é usar a [Plataforma 
 Confira nossa [Next.js deployment documentation](https://nextjs.org/docs/deployment) para mais detalhes.
 
 vercel --prod
+npm run build

@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-
+import ExitButton  from "@/app/(private)/ExitButton";
 
 export default function Contato() {
 
@@ -9,6 +9,7 @@ export default function Contato() {
       {/* <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden text-center"> */}
         <div className ="text-center" >
           <h1>Contato</h1>
+          <ExitButton/>
         <div/>
       </div>
    </div>

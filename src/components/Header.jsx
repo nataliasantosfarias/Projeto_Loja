@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import ExitButton from "../app/(private)/ExitButton";
 import MessageUser from "../app/(private)/MessageUser";
 export default function Header() {
   
@@ -12,7 +11,6 @@ export default function Header() {
           <Link href="/" className="text-xl">Home</Link>
           <Link href="/sobre" className="text-xl">Sobre</Link>
           <Link href="/contato" className="text-xl">Contato</Link>
-        <ExitButton/>
         <MessageUser/>
       </div>
     </div>
